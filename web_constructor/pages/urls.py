@@ -7,5 +7,5 @@ app_name = 'pages'
 urlpatterns = [
 	# main view
 	path('', views.index, name='home'),
-
+	path('', include('pages.urls')),
 ]
