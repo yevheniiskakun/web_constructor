@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl-PL">
   <head>
@@ -11,17 +12,42 @@
       <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
 
+    <link rel="stylesheet" href="{% static '/css/triple_anim_counter.css' %}">
+
+  </head>
+  <style>
+
+.box{
+  border: dashed #CDCDCD 2px;
+  width: 100%;
+  min-height: 50px;
+  margin: 2px 0px 2px 0px;
+}
+
+.over {
+  transform: scale(1.1, 1.1);
+}
+  </style>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid d-flex">
+          <input class="ml-auto" type="color" id='background_color_picker'>
+    </div>
+  </div>
+</nav>
 
 {% block content %}
 
 {% endblock %}
 
 
+</body>
 
 {% block footer %}
-      <footer class="footer text-white py-8 mt-10">
+      <footer class="footer text-white bg-dark py-8 mt-10">
         <div class="container">
             <div class="col-12 text-center">
               <br>
@@ -38,6 +64,86 @@
       </footer>
   {% endblock %}
 
+<script>
+let color_picker = document.getElementById('background_color_picker');
+color_picker.addEventListener('input', function() {  //
+ // console.log(el.value);
+ document.body.style.backgroundColor = color_picker.value
+});
+
+var btn = document.querySelector('.add');
+var remove = document.querySelector('.draggable');
+
+function dragStart(e) {
+  this.style.opacity = '0.4';
+  dragSrcEl = this;
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+};
+
+function dragEnter(e) {
+  this.classList.add('over');
+}
+
+function dragLeave(e) {
+  e.stopPropagation();
+  this.classList.remove('over');
+}
+
+function dragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  return false;
+}
+
+function dragDrop(e) {
+  if (dragSrcEl != this) {
+    dragSrcEl.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData('text/html');
+  }
+  return false;
+}
+
+function dragEnd(e) {
+  var listItens = document.querySelectorAll('.draggable');
+  [].forEach.call(listItens, function(item) {
+    item.classList.remove('over');
+  });
+  this.style.opacity = '1';
+}
+
+function addEventsDragAndDrop(el) {
+  el.addEventListener('dragstart', dragStart, false);
+  el.addEventListener('dragenter', dragEnter, false);
+  el.addEventListener('dragover', dragOver, false);
+  el.addEventListener('dragleave', dragLeave, false);
+  el.addEventListener('drop', dragDrop, false);
+  el.addEventListener('dragend', dragEnd, false);
+}
+
+var listItens = document.querySelectorAll('.draggable');
+[].forEach.call(listItens, function(item) {
+  addEventsDragAndDrop(item);
+});
+
+function addNewItem() {
+  var newItem = document.querySelector('.input').value;
+  if (newItem != '') {
+    document.querySelector('.input').value = '';
+    var li = document.createElement('li');
+    var attr = document.createAttribute('draggable');
+    var ul = document.querySelector('ul');
+    li.className = 'draggable';
+    attr.value = 'true';
+    li.setAttributeNode(attr);
+    li.appendChild(document.createTextNode(newItem));
+    ul.appendChild(li);
+    addEventsDragAndDrop(li);
+  }
+}
+
+btn.addEventListener('click', addNewItem);
+</script>
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
