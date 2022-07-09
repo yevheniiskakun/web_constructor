@@ -1,0 +1,74 @@
+div#contact_form_purple_gradient{
+    background-image: linear-gradient(to right, #E03B8C , #E85A65);
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.purple_contact_form{
+    background: white;
+    width: 40%;
+    min-height: 450px;
+    margin: 50px auto;
+    border-radius:10px;
+}
+.purple_contact_form_header{
+    margin: 5% 0 0 0 ;
+    font-weight: 800;
+}
+.purple_gradient_input_name{
+    margin: 5% 0 0 0 ;
+    width: 80%;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: grey;
+    font-size: 19px;
+}
+.purple_gradient_input_email{
+    margin: 10% 0 0 0 ;
+    width: 80%;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: grey;
+    font-size: 19px;
+}
+.purple_gradient_input_message{
+    margin: 10% 0 0 0 ;
+    width: 80%;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: grey;
+    font-size: 19px;
+}
+.purple_gradient_button{
+    margin: 10% 0 10% 0 ;
+    padding: 10px 40px;
+    color: white;
+    font-size: 19px;
+    outline: 0;
+    border: none;
+
+    cursor: pointer;
+
+  background: linear-gradient(120deg, blue, #E4343A, #D60279);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position .5s;
+}
+.purple_gradient_button:hover{
+   background-position: 0 0;
+}
+.purple_gradient_button:active{
+   transform:scale(0.96);
+}
+
+
+@media screen and (max-width: 600px) {
+  .purple_contact_form{
+    background: white;
+    width: 80%;
+    margin: 0px auto;
+    border-radius:10px;
+  }
+}
