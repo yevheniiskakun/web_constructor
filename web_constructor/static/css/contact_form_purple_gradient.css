@@ -41,20 +41,19 @@ div#contact_form_purple_gradient{
     border-color: grey;
     font-size: 19px;
 }
-.purple_gradient_button{
+button.purple_gradient_button{
     margin: 10% 0 10% 0 ;
     padding: 10px 40px;
     color: white;
     font-size: 19px;
-    outline: 0;
+    border-radius: 5px;
     border: none;
-
+    outline: 0;
     cursor: pointer;
-
-  background: linear-gradient(120deg, blue, #E4343A, #D60279);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  transition: background-position .5s;
+    background: linear-gradient(120deg, blue, #E4343A, #D60279);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position .5s;
 }
 .purple_gradient_button:hover{
    background-position: 0 0;
