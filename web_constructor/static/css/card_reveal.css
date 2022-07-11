@@ -1,0 +1,7 @@
+.card_element{
+    margin-left: -10em;
+    transition: margin-left 200ms;
+}
+.card_element:hover + .card_element{
+    margin-left: -1em;
+}
