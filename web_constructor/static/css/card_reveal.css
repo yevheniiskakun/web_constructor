@@ -1,6 +1,12 @@
+
 .card_element{
     margin-left: -10em;
     transition: margin-left 200ms;
+    background: white;
+    min-width: 350px;
+    padding: 3%;
+    box-shadow: -1px -1px 12px 2px rgba(0,0,0,0.55);
+    border-radius: 10px;
 }
 .card_element:hover + .card_element{
     margin-left: -1em;
