@@ -1,6 +1,6 @@
 
 .card_element{
-    margin-left: -10em;
+    margin-right: 10em;
     transition: margin-left 200ms;
     background: white;
     min-width: 350px;
@@ -9,5 +9,5 @@
     border-radius: 10px;
 }
 .card_element:hover + .card_element{
-    margin-left: -1em;
+    margin-right: 2em;
 }
