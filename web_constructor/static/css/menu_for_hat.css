@@ -1,0 +1,83 @@
+        .menu_for_hat_body {
+            background: #C33764;
+            background: -webkit-linear-gradient(to right, #1D2671, #C33764);
+            background: linear-gradient(to right, #1D2671, #C33764);
+            height:400px;
+        }
+
+        #menu__toggle {
+            display: none;
+        }
+        .menu__btn {
+            display: flex;
+            flex-direction: column;
+            width: 70px;
+            cursor: pointer;
+        }
+        .menu__btn .menu_for_hat_span {
+            background: #fff;
+            border-radius: 10px;
+            height: 7px;
+            margin: 7px 0;
+            transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            z-index: 99999;
+        }
+        .menu__btn .menu_for_hat_span:nth-of-type(1) {
+            width: 50%;
+        }
+        .menu__btn .menu_for_hat_span:nth-of-type(2) {
+            width: 100%;
+        }
+       .menu__btn .menu_for_hat_span:nth-of-type(3) {
+            width: 75%;
+        }
+
+        #menu__toggle:checked~.menu__btn .menu_for_hat_span:nth-of-type(1) {
+            transform-origin: bottom;
+            transform: rotatez(45deg) translate(8px, 0px)
+        }
+        #menu__toggle:checked~.menu__btn .menu_for_hat_span:nth-of-type(2) {
+            transform-origin: top;
+            transform: rotatez(-45deg)
+        }
+        #menu__toggle:checked~.menu__btn .menu_for_hat_span:nth-of-type(3) {
+            transform-origin: bottom;
+            width: 50%;
+            transform: translate(30px, -11px) rotatez(45deg);
+        }
+
+        #menu__toggle:checked~.menu__box {
+            left: 0 !important;
+        }
+
+        .menu__box {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 300px;
+            height: 100%;
+            margin: 0;
+            padding: 80px 0;
+            list-style: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+            transition-duration: .25s;
+        }
+        .menu__item {
+            display: block;
+            padding: 12px 24px;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition-duration: .25s;
+        }
+
+        .menu__item:hover {
+            background-color: rgb(255 255 255 / 55%);
+        }
