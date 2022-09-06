@@ -1,0 +1,18 @@
+.left-image{
+       transition: .5s ease;
+    }
+    .left-image:hover{
+       transform: perspective(1000px) rotateY(30deg);
+    }
+    .center-image{
+        transition: .5s ease;
+    }
+    .center-image:hover{
+        transform: scale(1.1);
+    }
+    .right-image{
+        transition: .5s ease;
+    }
+    .right-image:hover{
+        transform: perspective(1000px) rotateY(-30deg);
+    }
